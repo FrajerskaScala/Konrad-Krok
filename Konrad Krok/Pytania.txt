@@ -1,25 +1,34 @@
-Zadanie 1. Napisz generyczną funkcję
-def divide[A](list: List[A]): (List[A], List[A]) = /* ... */
-która podzieli listę list na dwie części. W pierwszej będą się znajdywać elementy na parzystych indeksach w drugiej elementy na nieparzystych.
-Przykład:
-divide(List(1, 3, 5, 6, 7)) == (List(1, 5, 7), List(3, 6))
-W rozwiązaniu skorzystaj z rekurencji ogonowej i dopasowania wzorca (nie używaj metod head i tail).
+# Nie edytuj tego pliku, Pojawia się tutaj zadania na samym dole
+# git clone "repo"
+# git add wybrany plik
+# git commit -m "dodałem rozwiazania"
+# git push origin main
+
+
+# Prompt do zadań z rekurencja Ogonowa:
+
+Przy użyciu biblioteki import scala.annotation.tailrec,w jezyku programowania Scala, rozwiąż następujące zadanie:
+Treść zadania:
+"WKLEJ ZADANIE"
+Rozwiązanie powinno zawierać adnotację @tailrec, aby zapewnić optymalizację ogonową.
+
+# Prompt do zadań z tablicami jeśli jest plik tekstowy np. csv
+W jezyku programowania Scala rozwiąż zadanie, uwzledniajac to ze wszystko będzie w jednym pliku oraz uwzglednij wywolanie to w main(@main 
+def zad: Unit = {})
+
+Treść zadania: "".
 
 
 
-Zadanie 2. Zdefiniuj generyczną funkcję
-def merge[A](a: List[A], b: List[A])(leq: (A, A) => Boolean): List[A]
-która połączy ze sobą dowolne dwa ciągi elementów typu A, zgodnie z porządkiem zadanym przez funkcję leq (załóżmy, że ciągi są posortowane).
-W rozwiązaniu skorzystaj z rekurencji ogonowej i dopasowania wzorca (nie używaj metod head i tail).
-Przykład:
-Dla: a = List(1 ,3, 5, 8), b = List(2, 4, 6, 8, 10, 12) i leq = (m, n) => m < n, funkcja powinna zwrócić List(1, 2, 3, 4, 5, 6, 8, 8, 10, 12)
+# Prompt do zadań z Aktorami:
 
+W jezyku programowania Scala rozwiąż zadanie, uwzledniajac to ze wszystko będzie w jednym pliku oraz uwzglednij wywolanie to w main(@main 
+def zad: Unit = {
 
-
-
-Aktorzy docs:
-https://nightlies.apache.org/pekko/docs/pekko/1.1/docs/actors.html#receive-messages
-
+})
+Rozwiązanie powinno zawierać taki wzór aktorów:
+"import org.apache.pekko
+import pekko.actor._
 
 object MyActor {
   case class Greeting(from: String)
@@ -31,5 +40,15 @@ class MyActor extends Actor with ActorLogging {
     case Greeting(greeter) => log.info(s"I was greeted by $greeter.")
     case Goodbye           => log.info("Someone said goodbye to me.")
   }
-}
+}"
+Rozwiąż następujące zadanie:
+"Tresc Zadania".
+
+
+
+
+
+----------------------------------------------------------Poniżej zadania będą ----------------------------------
+
+
 

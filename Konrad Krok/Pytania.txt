@@ -52,3 +52,20 @@ Rozwiąż następujące zadanie:
 
 
 
+Zadania:
+Zad1
+//Zdefiniuj generyczna funcke rekurencyjna ktora zwroci informacje czy liczba elementow z listy "l", dla ktorych funkcja 'op' zwraca wartosc value, jest dokladnie taka sama jak liczba num
+//np: l == List(1,2,3,3,4,5)
+//value == 0
+// num == 3
+// op == (a: Int) => a % 2 powinno dac nam true
+
+
+
+//pamietac zeby uzyc rekurencji ogonowej oraz dopasowania do wzorca(pattern matching)
+def checkValue[A, B](l: List[A], value: B, num: Int)(op: A => B): Boolean = {
+  ???
+}
+
+@main def zad1: Unit = {
+}

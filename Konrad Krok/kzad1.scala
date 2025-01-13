@@ -1,3 +1,5 @@
+import scala.annotation.tailrec
+
 def checkValue[A, B](l: List[A], value: B, num: Int)(op: A => B): Boolean = {
   @tailrec
   def loop(remaining: List[A], count: Int): Int = remaining match {

@@ -96,3 +96,51 @@ kolejno: nazwisko,imie,nazwa sieci,wiek
 
 korzystaja z metod oferowanych przez kolekcje przedstaw informacje odnosnie wieku czyli np filter, zestawienie powinno byc przedstawione w liscie, ktora zawiera ktorki np (pozycja,siec,max_wiek) gdzie pozycja to nastarsza osoba np 1 ,2,3... zestawienie powinno byc posortowane malejaco wedlug wieku najstarszej osoby
 np List((1,Citrone,79),(2,Citrone,78))
+
+
+
+
+
+
+
+
+
+
+
+-----
+import org.apache.pekko
+import pekko.actor.*
+import scala.util.Random
+
+//losowanie liczb calkowitych z przedzialu od n do m
+def losuj(n: Int, m: Int): Int = {
+  val random = new Random()
+  n + random.nextInt(m - n + 1)
+}
+
+case class Init(liczbaUczestnikow: Int)
+case object Start
+case object Zaglosuj
+case class Glosuje(n: Int)
+
+class Przewodniczacy extends Actor {
+  def receive: Receive = {
+    ???
+  }
+}
+
+class Uczestnik extends Actor {
+  def receive: Receive = {
+    ???
+  }
+}
+
+@main 
+def zad3: Unit = {
+  val system = ActorSystem("Kolokwium")
+}
+
+Korzystajac z aktorow zaimplementuj 'symulator glosowania'. Jego logika powinna skladac sie z aktora glownego typu: Przwodniczacy,przewodniczacy przyjmuje jeden komunikat Init(liczbaUczestnikow)
+po czym tworzy zadana liczbe aktorow typu class Uczestnik extends Actor nastepnie przechodzi w case object Start i wysyla do wszystkich uczestnikow komunikat case object Zaglosuj a potem odeslac case class Glosuje(n: Int)
+
+

@@ -69,3 +69,30 @@ def checkValue[A, B](l: List[A], value: B, num: Int)(op: A => B): Boolean = {
 
 @main def zad1: Unit = {
 }
+
+
+
+
+
+----
+
+@main def zad2: Unit = {
+ val dane = io.Source
+  .fromResource("dane.txt")
+  .getLines.toList
+  
+ val convert = dane.map(_.split(";").toList).map(_ match {
+   case List(nazwisko, imie, siec, wiek) => (nazwisko, imie, siec, wiek)
+   case _ => throw new IllegalArgumentException
+ })
+ println(convert) //dane z pliku w postaci listy krotek
+
+ convert.sortBy()
+
+}
+
+w pliku dane.txt znajduja sie fragmenty o osobach
+kolejno: nazwisko,imie,nazwa sieci,wiek
+
+korzystaja z metod oferowanych przez kolekcje przedstaw informacje odnosnie wieku czyli np filter, zestawienie powinno byc przedstawione w liscie, ktora zawiera ktorki np (pozycja,siec,max_wiek) gdzie pozycja to nastarsza osoba np 1 ,2,3... zestawienie powinno byc posortowane malejaco wedlug wieku najstarszej osoby
+np List((1,Citrone,79),(2,Citrone,78))

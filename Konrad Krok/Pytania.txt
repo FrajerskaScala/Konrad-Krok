@@ -1,25 +1,34 @@
-Zadanie 1. Napisz generyczną funkcję
-def divide[A](list: List[A]): (List[A], List[A]) = /* ... */
-która podzieli listę list na dwie części. W pierwszej będą się znajdywać elementy na parzystych indeksach w drugiej elementy na nieparzystych.
-Przykład:
-divide(List(1, 3, 5, 6, 7)) == (List(1, 5, 7), List(3, 6))
-W rozwiązaniu skorzystaj z rekurencji ogonowej i dopasowania wzorca (nie używaj metod head i tail).
+# Nie edytuj tego pliku, Pojawia się tutaj zadania na samym dole
+# git clone "repo"
+# git add wybrany plik
+# git commit -m "dodałem rozwiazania"
+# git push origin main
+
+
+# Prompt do zadań z rekurencja Ogonowa:
+
+Przy użyciu biblioteki import scala.annotation.tailrec,w jezyku programowania Scala, rozwiąż następujące zadanie:
+Treść zadania:
+"WKLEJ ZADANIE"
+Rozwiązanie powinno zawierać adnotację @tailrec, aby zapewnić optymalizację ogonową.
+
+# Prompt do zadań z tablicami jeśli jest plik tekstowy np. csv
+W jezyku programowania Scala rozwiąż zadanie, uwzledniajac to ze wszystko będzie w jednym pliku oraz uwzglednij wywolanie to w main(@main 
+def zad: Unit = {})
+
+Treść zadania: "".
 
 
 
-Zadanie 2. Zdefiniuj generyczną funkcję
-def merge[A](a: List[A], b: List[A])(leq: (A, A) => Boolean): List[A]
-która połączy ze sobą dowolne dwa ciągi elementów typu A, zgodnie z porządkiem zadanym przez funkcję leq (załóżmy, że ciągi są posortowane).
-W rozwiązaniu skorzystaj z rekurencji ogonowej i dopasowania wzorca (nie używaj metod head i tail).
-Przykład:
-Dla: a = List(1 ,3, 5, 8), b = List(2, 4, 6, 8, 10, 12) i leq = (m, n) => m < n, funkcja powinna zwrócić List(1, 2, 3, 4, 5, 6, 8, 8, 10, 12)
+# Prompt do zadań z Aktorami:
 
+W jezyku programowania Scala rozwiąż zadanie, uwzledniajac to ze wszystko będzie w jednym pliku oraz uwzglednij wywolanie to w main(@main 
+def zad: Unit = {
 
-
-
-Aktorzy docs:
-https://nightlies.apache.org/pekko/docs/pekko/1.1/docs/actors.html#receive-messages
-
+})
+Rozwiązanie powinno zawierać taki wzór aktorów:
+"import org.apache.pekko
+import pekko.actor._
 
 object MyActor {
   case class Greeting(from: String)
@@ -31,5 +40,107 @@ class MyActor extends Actor with ActorLogging {
     case Greeting(greeter) => log.info(s"I was greeted by $greeter.")
     case Goodbye           => log.info("Someone said goodbye to me.")
   }
+}"
+Rozwiąż następujące zadanie:
+"Tresc Zadania".
+
+
+
+
+
+----------------------------------------------------------Poniżej zadania będą ----------------------------------
+
+
+
+Zadania:
+Zad1
+//Zdefiniuj generyczna funcke rekurencyjna ktora zwroci informacje czy liczba elementow z listy "l", dla ktorych funkcja 'op' zwraca wartosc value, jest dokladnie taka sama jak liczba num
+//np: l == List(1,2,3,3,4,5)
+//value == 0
+// num == 3
+// op == (a: Int) => a % 2 powinno dac nam true
+
+
+
+//pamietac zeby uzyc rekurencji ogonowej oraz dopasowania do wzorca(pattern matching)
+def checkValue[A, B](l: List[A], value: B, num: Int)(op: A => B): Boolean = {
+  ???
 }
+
+@main def zad1: Unit = {
+}
+
+
+
+
+
+----
+
+@main def zad2: Unit = {
+ val dane = io.Source
+  .fromResource("dane.txt")
+  .getLines.toList
+  
+ val convert = dane.map(_.split(";").toList).map(_ match {
+   case List(nazwisko, imie, siec, wiek) => (nazwisko, imie, siec, wiek)
+   case _ => throw new IllegalArgumentException
+ })
+ println(convert) //dane z pliku w postaci listy krotek
+
+ convert.sortBy()
+
+}
+
+w pliku dane.txt znajduja sie fragmenty o osobach
+kolejno: nazwisko,imie,nazwa sieci,wiek
+
+korzystaja z metod oferowanych przez kolekcje przedstaw informacje odnosnie wieku czyli np filter, zestawienie powinno byc przedstawione w liscie, ktora zawiera ktorki np (pozycja,siec,max_wiek) gdzie pozycja to nastarsza osoba np 1 ,2,3... zestawienie powinno byc posortowane malejaco wedlug wieku najstarszej osoby
+np List((1,Citrone,79),(2,Citrone,78))
+
+
+
+
+
+
+
+
+
+
+
+-----
+import org.apache.pekko
+import pekko.actor.*
+import scala.util.Random
+
+//losowanie liczb calkowitych z przedzialu od n do m
+def losuj(n: Int, m: Int): Int = {
+  val random = new Random()
+  n + random.nextInt(m - n + 1)
+}
+
+case class Init(liczbaUczestnikow: Int)
+case object Start
+case object Zaglosuj
+case class Glosuje(n: Int)
+
+class Przewodniczacy extends Actor {
+  def receive: Receive = {
+    ???
+  }
+}
+
+class Uczestnik extends Actor {
+  def receive: Receive = {
+    ???
+  }
+}
+
+@main 
+def zad3: Unit = {
+  val system = ActorSystem("Kolokwium")
+}
+
+Korzystajac z aktorow zaimplementuj 'symulator glosowania'. Jego logika powinna skladac sie z aktora glownego typu: Przwodniczacy,przewodniczacy przyjmuje jeden komunikat Init(liczbaUczestnikow)
+po czym tworzy zadana liczbe aktorow typu class Uczestnik extends Actor nastepnie przechodzi w case object Start i wysyla do wszystkich uczestnikow komunikat case object Zaglosuj a potem odeslac case class Glosuje(n: Int)
+
 
